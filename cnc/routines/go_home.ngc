@@ -1,9 +1,9 @@
 (go_home.ngc)
 
-O <go_home> sub 
+O <go_home> sub
 G90
-G54 G0 Z-0
-G53 G0 X15 Y15
+G53 G0 Z0
+G53 G0 X0 Y0
 O <go_home> endsub
 
 M2
