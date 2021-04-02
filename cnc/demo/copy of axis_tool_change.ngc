@@ -1,0 +1,34 @@
+( Default axis programm + tool change )
+#<depth>=2.0
+#<scale>=1.0
+G21 G90 G64 G40
+G0 Z3.0
+( engraving )
+G17
+M3 S10000
+(########################)
+(# Tool change added here)
+M6 T1
+(#######################)
+G0 X[1.75781*#<scale>] Y[0.5*#<scale>]
+G1 F100.0 Z[-#<depth>]
+G1 F400.0 X[5.95508*#<scale>] Y[20.54297*#<scale>]
+G1 X[10.07031*#<scale>]
+G1 X[6.58398*#<scale>] Y[3.84961*#<scale>]
+G1 X[16.7832*#<scale>]
+G1 X[16.08594*#<scale>] Y[0.5*#<scale>]
+G1 X[1.75781*#<scale>]
+G0 Z3.0
+(########################)
+(# Tool change added here)
+M6 T2
+(#######################)
+G0 X[18.72461*#<scale>]
+G1 F100.0 Z[-#<depth>]
+G1 F400.0 X[21.75977*#<scale>] Y[15.01953*#<scale>]
+G1 X[25.68359*#<scale>]
+G1 X[22.64844*#<scale>] Y[0.5*#<scale>]
+G1 X[18.72461*#<scale>]
+G0 Z3.0
+M5
+M2
