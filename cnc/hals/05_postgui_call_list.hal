@@ -4,3 +4,4 @@ source ./hals/10_touch_plate.hal
 #source ./hals/20_joypad_jog_speed.hal
 #source ./hals/21_joypad_xyz.hal
 #source ./hals/22_joypad_estop.hal
+source ./hals/30_probe_screen_v2.hal
