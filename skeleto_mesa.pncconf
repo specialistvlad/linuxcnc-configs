@@ -235,13 +235,13 @@
   <property name="halui_cmd7" type="string" value=""/>
   <property name="halui_cmd8" type="string" value=""/>
   <property name="halui_cmd9" type="string" value=""/>
-  <property name="help" type="string" value="help-axismotor.txt"/>
+  <property name="help" type="string" value="help-realtime.txt"/>
   <property name="homeboth" type="bool" value="False"/>
   <property name="homeindex" type="bool" value="False"/>
   <property name="homenone" type="bool" value="True"/>
   <property name="homeswitch" type="bool" value="False"/>
   <property name="homingtype" type="int" value="0"/>
-  <property name="include_spindle" type="bool" value="True"/>
+  <property name="include_spindle" type="bool" value="False"/>
   <property name="increments_imperial" type="string" value=".1in .05in .01in .005in .001in .0005in .0001in"/>
   <property name="increments_metric" type="string" value="5mm 1mm .5mm .1mm .05mm .01mm .005mm"/>
   <property name="incrselect" type="bool" value="False"/>
@@ -301,7 +301,7 @@
   <property name="mesa0_numof_resolvers" type="int" value="0"/>
   <property name="mesa0_numof_sserialchannels" type="int" value="1"/>
   <property name="mesa0_numof_sserialports" type="int" value="0"/>
-  <property name="mesa0_numof_stepgens" type="int" value="7"/>
+  <property name="mesa0_numof_stepgens" type="int" value="8"/>
   <property name="mesa0_numof_tppwmgens" type="int" value="0"/>
   <property name="mesa0_parportaddrs" type="string" value="0x378"/>
   <property name="mesa0_pdm_frequency" type="float" value="6000000.0"/>
@@ -311,9 +311,9 @@
   <property name="mesa0c1pin0inv" type="bool" value="False"/>
   <property name="mesa0c1pin0type" type="string" value="GPIO Output"/>
   <property name="mesa0c1pin1" type="string" value="s-pwm-pulse"/>
-  <property name="mesa0c1pin10" type="string" value="unused-output"/>
+  <property name="mesa0c1pin10" type="string" value="unused-stepgen"/>
   <property name="mesa0c1pin10inv" type="bool" value="False"/>
-  <property name="mesa0c1pin10type" type="string" value="GPIO Output"/>
+  <property name="mesa0c1pin10type" type="string" value="Dir Gen-B"/>
   <property name="mesa0c1pin11" type="string" value="unused-output"/>
   <property name="mesa0c1pin11inv" type="bool" value="False"/>
   <property name="mesa0c1pin11type" type="string" value="GPIO Output"/>
@@ -324,7 +324,7 @@
   <property name="mesa0c1pin13inv" type="bool" value="False"/>
   <property name="mesa0c1pin13type" type="string" value="GPIO Input"/>
   <property name="mesa0c1pin14" type="string" value="probe-in"/>
-  <property name="mesa0c1pin14inv" type="bool" value="True"/>
+  <property name="mesa0c1pin14inv" type="bool" value="False"/>
   <property name="mesa0c1pin14type" type="string" value="GPIO Input"/>
   <property name="mesa0c1pin15" type="string" value="max-home-x"/>
   <property name="mesa0c1pin15inv" type="bool" value="True"/>
@@ -371,14 +371,14 @@
   <property name="mesa0c1pin6inv" type="bool" value="False"/>
   <property name="mesa0c1pin6type" type="string" value="Step Gen-A"/>
   <property name="mesa0c1pin7" type="string" value="coolant-flood"/>
-  <property name="mesa0c1pin7inv" type="bool" value="True"/>
+  <property name="mesa0c1pin7inv" type="bool" value="False"/>
   <property name="mesa0c1pin7type" type="string" value="GPIO Output"/>
   <property name="mesa0c1pin8" type="string" value="z-stepgen-dir"/>
   <property name="mesa0c1pin8inv" type="bool" value="False"/>
   <property name="mesa0c1pin8type" type="string" value="Dir Gen-B"/>
-  <property name="mesa0c1pin9" type="string" value="unused-output"/>
+  <property name="mesa0c1pin9" type="string" value="unused-stepgen"/>
   <property name="mesa0c1pin9inv" type="bool" value="False"/>
-  <property name="mesa0c1pin9type" type="string" value="GPIO Output"/>
+  <property name="mesa0c1pin9type" type="string" value="Step Gen-A"/>
   <property name="mesa0c2pin0" type="string" value="unused-input"/>
   <property name="mesa0c2pin0inv" type="bool" value="False"/>
   <property name="mesa0c2pin0type" type="string" value="GPIO Input"/>
@@ -4018,7 +4018,7 @@
   <property name="pp3_Opin9" type="string" value="unused-output"/>
   <property name="pp3_Opin9_inv" type="bool" value="False"/>
   <property name="pp3_direction" type="int" value="0"/>
-  <property name="pyvcp" type="bool" value="True"/>
+  <property name="pyvcp" type="bool" value="False"/>
   <property name="pyvcp1" type="bool" value="False"/>
   <property name="pyvcpblank" type="bool" value="True"/>
   <property name="pyvcpconnect" type="bool" value="True"/>
@@ -4033,7 +4033,7 @@
   <property name="pyvcpypos" type="float" value="0.0"/>
   <property name="raise_z_on_toolchange" type="bool" value="True"/>
   <property name="random_toolchanger" type="bool" value="False"/>
-  <property name="require_homing" type="bool" value="True"/>
+  <property name="require_homing" type="bool" value="False"/>
   <property name="restore_joint_position" type="bool" value="True"/>
   <property name="s32in" type="float" value="10.0"/>
   <property name="s32out" type="float" value="10.0"/>
@@ -4170,7 +4170,7 @@
   <property name="units" type="int" value="1"/>
   <property name="usbdevicename" type="string" value="none"/>
   <property name="usebldc" type="bool" value="False"/>
-  <property name="useinisubstitution" type="bool" value="False"/>
+  <property name="useinisubstitution" type="bool" value="True"/>
   <property name="userneededabs" type="int" value="0"/>
   <property name="userneededbldc" type="int" value="0"/>
   <property name="userneededlowpass" type="int" value="0"/>
