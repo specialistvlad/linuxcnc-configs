@@ -40,7 +40,7 @@ net coolant-flood  =>     [HMOT](CARD0).gpio.024.out
 net max-home-z     <=  [HMOT](CARD0).gpio.020.in_not
 
 # --- ESTOP-EXT ---
-net estop-ext     <=  [HMOT](CARD0).gpio.030.in
+net estop-ext     <=  [HMOT](CARD0).gpio.030.in_not
 
 # --- PROBE-IN ---
 net probe-in     <=  [HMOT](CARD0).gpio.031.in
