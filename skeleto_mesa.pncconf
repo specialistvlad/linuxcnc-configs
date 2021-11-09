@@ -165,18 +165,18 @@
   <property name="foincrvalue7" type="float" value="100.0"/>
   <property name="foincrvalue8" type="float" value="110.0"/>
   <property name="foincrvalue9" type="float" value="125.0"/>
-  <property name="frontend" type="int" value="1"/>
+  <property name="frontend" type="int" value="3"/>
   <property name="gearselect" type="bool" value="False"/>
   <property name="geometry" type="string" value="xyz"/>
-  <property name="gladeexists" type="bool" value="True"/>
-  <property name="gladesample" type="bool" value="False"/>
+  <property name="gladeexists" type="bool" value="False"/>
+  <property name="gladesample" type="bool" value="True"/>
   <property name="gladevcp" type="bool" value="False"/>
   <property name="gladevcpforcemax" type="bool" value="False"/>
   <property name="gladevcphaluicmds" type="int" value="3"/>
   <property name="gladevcpheight" type="float" value="0.0"/>
   <property name="gladevcpposition" type="bool" value="False"/>
   <property name="gladevcpsize" type="bool" value="False"/>
-  <property name="gladevcptheme" type="string" value="Follow System Theme"/>
+  <property name="gladevcptheme" type="string" value="Adwaita-dark"/>
   <property name="gladevcpwidth" type="float" value="0.0"/>
   <property name="gladevcpxpos" type="float" value="0.0"/>
   <property name="gladevcpypos" type="float" value="0.0"/>
@@ -228,9 +228,9 @@
   <property name="halui_cmd13" type="string" value=""/>
   <property name="halui_cmd14" type="string" value=""/>
   <property name="halui_cmd2" type="string" value="G10 L20 P0 Z0 ( Set Z to zero )"/>
-  <property name="halui_cmd3" type="string" value=""/>
-  <property name="halui_cmd4" type="string" value=""/>
-  <property name="halui_cmd5" type="string" value=""/>
+  <property name="halui_cmd3" type="string" value="G38.2 Z-2 F16   ( search for touch off plate )"/>
+  <property name="halui_cmd4" type="string" value="G10 L20 P0 Z.25 ( Ofset current Origin by plate thickness )"/>
+  <property name="halui_cmd5" type="string" value="G0 Z.5           ( Rapid away from touch off plate )"/>
   <property name="halui_cmd6" type="string" value=""/>
   <property name="halui_cmd7" type="string" value=""/>
   <property name="halui_cmd8" type="string" value=""/>
@@ -273,8 +273,8 @@
   <property name="ladderconnect" type="bool" value="True"/>
   <property name="ladderexist" type="bool" value="False"/>
   <property name="ladderhaltype" type="int" value="0"/>
-  <property name="laddername" type="string" value="custom.clp"/>
-  <property name="laddertouchz" type="bool" value="False"/>
+  <property name="laddername" type="string" value="touchoff_z.clp"/>
+  <property name="laddertouchz" type="bool" value="True"/>
   <property name="latency" type="int" value="15000"/>
   <property name="limitshared" type="bool" value="False"/>
   <property name="limitsnone" type="bool" value="True"/>
@@ -310,7 +310,7 @@
   <property name="mesa0c1pin0" type="string" value="unused-output"/>
   <property name="mesa0c1pin0inv" type="bool" value="False"/>
   <property name="mesa0c1pin0type" type="string" value="GPIO Output"/>
-  <property name="mesa0c1pin1" type="string" value="s-pwm-pulse"/>
+  <property name="mesa0c1pin1" type="string" value="unused-pwm"/>
   <property name="mesa0c1pin10" type="string" value="unused-stepgen"/>
   <property name="mesa0c1pin10inv" type="bool" value="False"/>
   <property name="mesa0c1pin10type" type="string" value="Dir Gen-B"/>
@@ -321,7 +321,7 @@
   <property name="mesa0c1pin12inv" type="bool" value="False"/>
   <property name="mesa0c1pin12type" type="string" value="GPIO Output"/>
   <property name="mesa0c1pin13" type="string" value="estop-ext"/>
-  <property name="mesa0c1pin13inv" type="bool" value="False"/>
+  <property name="mesa0c1pin13inv" type="bool" value="True"/>
   <property name="mesa0c1pin13type" type="string" value="GPIO Input"/>
   <property name="mesa0c1pin14" type="string" value="probe-in"/>
   <property name="mesa0c1pin14inv" type="bool" value="False"/>
@@ -401,9 +401,9 @@
   <property name="mesa0c2pin15" type="string" value="unused-input"/>
   <property name="mesa0c2pin15inv" type="bool" value="False"/>
   <property name="mesa0c2pin15type" type="string" value="GPIO Input"/>
-  <property name="mesa0c2pin16" type="string" value="unused-input"/>
+  <property name="mesa0c2pin16" type="string" value="unused-output"/>
   <property name="mesa0c2pin16inv" type="bool" value="False"/>
-  <property name="mesa0c2pin16type" type="string" value="GPIO Input"/>
+  <property name="mesa0c2pin16type" type="string" value="GPIO Output"/>
   <property name="mesa0c2pin17" type="string" value="unused-unused"/>
   <property name="mesa0c2pin17inv" type="bool" value="False"/>
   <property name="mesa0c2pin17type" type="string" value="Not Used"/>
@@ -4033,7 +4033,7 @@
   <property name="pyvcpypos" type="float" value="0.0"/>
   <property name="raise_z_on_toolchange" type="bool" value="True"/>
   <property name="random_toolchanger" type="bool" value="False"/>
-  <property name="require_homing" type="bool" value="False"/>
+  <property name="require_homing" type="bool" value="True"/>
   <property name="restore_joint_position" type="bool" value="True"/>
   <property name="s32in" type="float" value="10.0"/>
   <property name="s32out" type="float" value="10.0"/>
@@ -4137,8 +4137,8 @@
   <property name="soutputmaxvoltage" type="float" value="10.0"/>
   <property name="soutputscale" type="float" value="2000.0"/>
   <property name="soutputscale2" type="float" value="10.0"/>
-  <property name="spindleatspeed" type="bool" value="True"/>
-  <property name="spindlespeedbar" type="bool" value="True"/>
+  <property name="spindleatspeed" type="bool" value="False"/>
+  <property name="spindlespeedbar" type="bool" value="False"/>
   <property name="srbvoltage_5" type="bool" value="False"/>
   <property name="ssearchdir" type="int" value="0"/>
   <property name="ssingleinputencoder" type="bool" value="False"/>
