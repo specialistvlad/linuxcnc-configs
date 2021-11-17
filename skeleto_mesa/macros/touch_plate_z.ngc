@@ -6,11 +6,12 @@ o<touch_plate_z> sub
 #<ZProbeRange> =          -1.50   ( This is the distance the probe will travel on its initial search before erroring out, should be a negative value )
 #<ProbeLift> =             0.10  ( This is the distnce the probe will lift off the touch plate prior to starting the second search )
 #<ProbeRetract> =         1.00   ( This is the distance the probe will lift from the touch plate after succesful probing to allow for removal of the plate )
-
+#<FastRetract> =         50 (This is the speed of retractions after probing )
 ( Set current Z position to 0 so that we will always be moving down )
 G10 L20 P0 Z0
 
 ( Probe quickly for initial contact )
+(incremental distance mode)
 G91
 F[#<FastProbe>]
 G38.2 Z[#<ZProbeRange>]
@@ -26,7 +27,7 @@ G4 P0.5
 g38.2 Z[-2 * #<ProbeLift>]
 
 ( Move up to set new zero )
-G1 Z[#<ProbeRetract>] F[#<FastProbe>]
+G1 Z[#<ProbeRetract>] F[#<FastRetract>]
 
 ( Set Z0 at point where probe triggers with offset of plate thickness)
 G10 L20 P0 Z[#<ProbeRetract> + #<PlateThickness>]

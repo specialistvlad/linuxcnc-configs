@@ -12,6 +12,10 @@ setp    [HMOT](CARD0).pwmgen.pdm_frequency 6000000
 setp    [HMOT](CARD0).watchdog.timeout_ns 5000000
 loadrt pid names=pid.x,pid.y,pid.z,pid.s
 
+# select8 component for disabling probe input while not probing to prevent contact bounce(retract move) 
+loadrt select8 count=1
+addf select8.0 servo-thread
+
 addf [HMOT](CARD0).read          servo-thread
 addf motion-command-handler   servo-thread
 addf motion-controller        servo-thread
@@ -43,7 +47,7 @@ net home-z     <=  [HMOT](CARD0).gpio.020.in_not
 net estop-ext     <=  [HMOT](CARD0).gpio.030.in_not
 
 # --- PROBE-IN ---
-net probe-in     <=  [HMOT](CARD0).gpio.031.in
+net probe-in     <=  [HMOT](CARD0).gpio.031.in_not
 
 # --- HOME-X ---
 net home-x     <=  [HMOT](CARD0).gpio.032.in_not
@@ -248,7 +252,12 @@ net coolant-flood     <=  iocontrol.0.coolant-flood
 
 #  ---probe signal---
 
-net probe-in     =>  motion.probe-input
+#net probe-in     =>  motion.probe-input
+net probe-in select8.0.enable
+# Номер режима ведем на вход выбора
+net motion-mode motion.motion-type select8.0.sel
+# Выход 5 select8 - ко входу для датчика
+net probesel select8.0.out5 motion.probe-input
 
 #  ---motion control signals---
 
@@ -264,7 +273,7 @@ net estop-ext     =>  iocontrol.0.emc-enable-in
 
 #  ---manual tool change signals---
 
-#loadusr -W hal_manualtoolchange
+loadusr -W hal_manualtoolchange
 #net tool-change-request     iocontrol.0.tool-change       =>  hal_manualtoolchange.change
 #net tool-change-confirmed   iocontrol.0.tool-changed      <=  hal_manualtoolchange.changed
 #net tool-number             iocontrol.0.tool-prep-number  =>  hal_manualtoolchange.number
