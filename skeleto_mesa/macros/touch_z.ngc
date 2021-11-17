@@ -1,3 +1,5 @@
+(IMAGE, ./macros/images/touch_z.png)
+
 o<touch_z> sub
 
 #<PlateThickness> =      19.05   ( Thickness of your touh plate when proving in the Z orientation, this is used to re-caluclate your new zero after touching off )

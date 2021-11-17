@@ -1,3 +1,5 @@
+(IMAGE, ./macros/images/probe_init.png)
+
 O<probe_init> SUB
 M600
 M6 T99
