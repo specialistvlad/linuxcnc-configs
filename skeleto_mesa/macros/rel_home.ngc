@@ -1,0 +1,11 @@
+; Go to relative zero
+
+; the image path must be relative from your config dir or absolut, "~" is allowed
+(IMAGE, ./macros/images/rel_home.png)
+
+O<rel_home> sub
+G90 X0 Y0
+G90 Z0
+O<rel_home> endsub
+M2
+

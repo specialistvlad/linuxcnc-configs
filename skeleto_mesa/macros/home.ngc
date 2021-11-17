@@ -1,0 +1,11 @@
+; Go to  machine Zero
+
+; the image path must be relative from your config dir or absolut, "~" is allowed
+(IMAGE, ./macros/images/home.png)
+
+O<home> sub
+G0 G53 Z0
+G0 G53 X0 Y0
+O<home> endsub
+M2
+
