@@ -4,7 +4,7 @@
 ; the image path must be relative from your config dir or absolut, "~" is allowed
 (IMAGE, ./macros/images/goto_x_y_z.png)
 
-O<go_to_position> sub
+O<go_to> sub
 
 G17
 G21
@@ -22,7 +22,7 @@ G90
 (DBG, Will now move machine to X = #1 , Y = #2 , Z = #3)
 G0 X #1 Y #2 Z #3
 
-O<go_to_position> endsub
+O<go_to> endsub
 
 M2
 

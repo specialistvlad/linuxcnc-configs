@@ -44,9 +44,9 @@ PATH_PREPEND = python
 TOPLEVEL = python/toplevel.py
 
 [MACROS]
-MACRO = go_to
-MACRO = touch_plate_z
-MACRO = init_height
+MACRO = go_to_position
+#MACRO = touch_plate_z
+#MACRO = on_abort
 
 [TASK]
 TASK = milltask
@@ -81,6 +81,14 @@ HALFILE = skeleto_mesa.hal
 HALFILE = custom.hal
 POSTGUI_HALFILE = postgui_call_list.hal
 SHUTDOWN = shutdown.hal
+
+[HALUI]
+#MDI_COMMAND = G10 L20 P0 X0 ( Set X to zero )
+#MDI_COMMAND = G10 L20 P0 Y0 ( Set Y to zero )
+#MDI_COMMAND = G10 L20 P0 Z0 ( Set Z to zero )
+#MDI_COMMAND = G38.2 Z-2 F16   ( search for touch off plate )
+#MDI_COMMAND = G10 L20 P0 Z.25 ( Ofset current Origin by plate thickness )
+#MDI_COMMAND = G0 Z.5           ( Rapid away from touch off plate )
 
 [KINS]
 JOINTS = 3

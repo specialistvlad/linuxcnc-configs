@@ -1,0 +1,8 @@
+O<init_height> SUB
+
+( Filename: init_height.ngc )
+M600
+M6 T99
+
+O<init_height> ENDSUB
+M2
