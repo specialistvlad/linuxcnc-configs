@@ -45,7 +45,6 @@ net probesel select8.0.out5 motion.probe-input
 net in-position               <=  motion.in-position
 net machine-is-enabled        <=  motion.motion-enabled
 
-
 #  ---estop signals---
 
 net estop-out     <=  iocontrol.0.user-enable-out
