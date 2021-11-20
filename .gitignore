@@ -1,3 +1,4 @@
 autosave.halscope
 *.bak
 *.pyc
+.DS_Store

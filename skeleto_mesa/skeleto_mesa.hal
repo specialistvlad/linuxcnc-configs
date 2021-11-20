@@ -7,7 +7,7 @@ loadrt [KINS]KINEMATICS
 loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
 loadrt hostmot2
 loadrt hm2_eth board_ip="10.10.10.10" config=" num_encoders=0 num_pwmgens=2 num_stepgens=8" 
-setp    [HMOT](CARD0).pwmgen.pwm_frequency 33000
+setp    [HMOT](CARD0).pwmgen.pwm_frequency 1000
 setp    [HMOT](CARD0).pwmgen.pdm_frequency 6000000
 setp    [HMOT](CARD0).watchdog.timeout_ns 10000000
 loadrt pid names=pid.x,pid.y,pid.z
@@ -37,10 +37,6 @@ setp [HMOT](CARD0).gpio.018.invert_output true
 # --- SPINDLE-CW ---
 setp [HMOT](CARD0).gpio.022.is_output true
 net spindle-cw  =>     [HMOT](CARD0).gpio.022.out
-
-# --- SPINDLE-CCW ---
-#setp [HMOT](CARD0).gpio.029.is_output true
-#net spindle-ccw  =>     [HMOT](CARD0).gpio.029.out
 
 # --- COOLANT-FLOOD ---
 setp [HMOT](CARD0).gpio.024.is_output true
@@ -228,12 +224,14 @@ net z-pos-limit     =>  joint.2.pos-lim-sw-in
 #setp     [HMOT](CARD0).pwmgen.01.enable 1
 #setp     [HMOT](CARD0).pwmgen.01.value 1
 setp     [HMOT](CARD0).pwmgen.01.output-type 1
-setp     [HMOT](CARD0).pwmgen.01.scale 24000
+setp     [HMOT](CARD0).pwmgen.01.scale 10000
+#setp     [HMOT](CARD0).pwmgen.01.invert_output 1
+setp     [HMOT](CARD0).gpio.017.invert_output 1
 
 # ---setup spindle control signals---
 
 net spindle-vel-cmd-rps        <=  spindle.0.speed-out-rps
-net spindle-vel-cmd-rps-abs    <=  spindle.0.speed-out-rps-abs
+#net spindle-vel-cmd-rps-abs    <=  spindle.0.speed-out-rps-abs
 net spindle-vel-cmd-rpm        <=  spindle.0.speed-out
 net spindle-vel-cmd-rpm-abs spindle.0.speed-out-abs => [HMOT](CARD0).pwmgen.01.value
 net spindle-enable spindle.0.on => [HMOT](CARD0).pwmgen.01.enable
