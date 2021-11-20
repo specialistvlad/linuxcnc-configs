@@ -1,8 +1,6 @@
 #*******************
 #  AXIS Z JOINT 2
 #*******************
-addf pid.z.do-pid-calcs       servo-thread
-
 setp   pid.z.Pgain     [JOINT_2]P
 setp   pid.z.Igain     [JOINT_2]I
 setp   pid.z.Dgain     [JOINT_2]D
