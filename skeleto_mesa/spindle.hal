@@ -4,7 +4,7 @@
 #setp     [HMOT](CARD0).pwmgen.01.enable 1
 #setp     [HMOT](CARD0).pwmgen.01.value 1
 setp     [HMOT](CARD0).pwmgen.01.output-type 1
-setp     [HMOT](CARD0).pwmgen.01.scale 10000
+setp     [HMOT](CARD0).pwmgen.01.scale 26000
 #setp     [HMOT](CARD0).pwmgen.01.invert_output 1
 setp     [HMOT](CARD0).gpio.017.invert_output 1
 
