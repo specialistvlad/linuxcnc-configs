@@ -1,0 +1,31 @@
+# external output signals
+
+# --- MACHINE-IS-ENABLED ---
+setp [HMOT](CARD0).gpio.018.is_output true
+net machine-is-enabled  =>     [HMOT](CARD0).gpio.018.out
+setp [HMOT](CARD0).gpio.018.invert_output true
+
+# --- SPINDLE-CW ---
+setp [HMOT](CARD0).gpio.022.is_output true
+net spindle-cw  =>     [HMOT](CARD0).gpio.022.out
+
+# --- COOLANT-FLOOD ---
+setp [HMOT](CARD0).gpio.024.is_output true
+net coolant-flood  =>     [HMOT](CARD0).gpio.024.out
+
+# external input signals
+
+# --- HOME-Z ---
+net home-z     <=  [HMOT](CARD0).gpio.020.in_not
+
+# --- ESTOP-EXT ---
+net estop-ext     <=  [HMOT](CARD0).gpio.030.in_not
+
+# --- PROBE-IN ---
+net probe-in     <=  [HMOT](CARD0).gpio.031.in_not
+
+# --- HOME-X ---
+net home-x     <=  [HMOT](CARD0).gpio.032.in_not
+
+# --- HOME-Y ---
+net home-y     <=  [HMOT](CARD0).gpio.033.in_not

@@ -1,0 +1,28 @@
+#*******************
+#  SPINDLE
+#*******************
+#setp     [HMOT](CARD0).pwmgen.01.enable 1
+#setp     [HMOT](CARD0).pwmgen.01.value 1
+setp     [HMOT](CARD0).pwmgen.01.output-type 1
+setp     [HMOT](CARD0).pwmgen.01.scale 10000
+#setp     [HMOT](CARD0).pwmgen.01.invert_output 1
+setp     [HMOT](CARD0).gpio.017.invert_output 1
+
+# ---setup spindle control signals---
+
+net spindle-vel-cmd-rps        <=  spindle.0.speed-out-rps
+#net spindle-vel-cmd-rps-abs    <=  spindle.0.speed-out-rps-abs
+net spindle-vel-cmd-rpm        <=  spindle.0.speed-out
+net spindle-vel-cmd-rpm-abs spindle.0.speed-out-abs => [HMOT](CARD0).pwmgen.01.value
+net spindle-enable spindle.0.on => [HMOT](CARD0).pwmgen.01.enable
+net spindle-cw                 <=  spindle.0.forward
+net spindle-ccw                <=  spindle.0.reverse
+net spindle-brake              <=  spindle.0.brake
+net spindle-revs               =>  spindle.0.revs
+net spindle-at-speed           =>  spindle.0.at-speed
+net spindle-vel-fb-rps         =>  spindle.0.speed-in
+net spindle-index-enable      <=>  spindle.0.index-enable
+
+# ---Setup spindle at speed signals---
+
+sets spindle-at-speed false

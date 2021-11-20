@@ -1,0 +1,12 @@
+#loadusr -W postgui_tool
+#loadusr -W postgui_misc
+
+loadusr -W hal_manualtoolchange
+
+net tool-change gmoccapy.toolchange-change <= iocontrol.0.tool-change
+net tool-changed gmoccapy.toolchange-changed <= iocontrol.0.tool-changed
+net tool-prep-number gmoccapy.toolchange-number <= iocontrol.0.tool-prep-number
+net tool-prep-loop iocontrol.0.tool-prepare <= iocontrol.0.tool-prepared
+
+setp gmoccapy.spindle_at_speed_led 1
+net spindle-vel-cmd-rps-abs gmoccapy.spindle_feedback_bar <= spindle.0.speed-out-rps-abs
