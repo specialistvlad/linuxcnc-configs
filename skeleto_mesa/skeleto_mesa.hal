@@ -2,18 +2,15 @@ loadrt [KINS]KINEMATICS
 loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
 loadrt hostmot2
 loadrt hm2_eth board_ip="10.10.10.10" config=" num_encoders=0 num_pwmgens=2 num_stepgens=8" 
-setp    [HMOT](CARD0).pwmgen.pwm_frequency 1000
-setp    [HMOT](CARD0).pwmgen.pdm_frequency 6000000
-setp    [HMOT](CARD0).watchdog.timeout_ns 10000000
 loadrt pid names=pid.x,pid.y,pid.z
 
-addf [HMOT](CARD0).read          servo-thread
-addf motion-command-handler   servo-thread
-addf motion-controller        servo-thread
-addf pid.x.do-pid-calcs       servo-thread
-addf pid.y.do-pid-calcs       servo-thread
-addf pid.z.do-pid-calcs       servo-thread
-#addf pid.s.do-pid-calcs       servo-thread
-addf [HMOT](CARD0).write         servo-thread
+addf [HMOT](CARD0).read servo-thread
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+addf [HMOT](CARD0).write servo-thread
+
 setp [HMOT](CARD0).dpll.01.timer-us -50
 setp [HMOT](CARD0).stepgen.timer-number 1
+setp [HMOT](CARD0).watchdog.timeout_ns 10000000
+setp [HMOT](CARD0).pwmgen.pwm_frequency 1000
+setp [HMOT](CARD0).pwmgen.pdm_frequency 6000000

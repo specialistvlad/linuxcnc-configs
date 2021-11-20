@@ -1,6 +1,7 @@
 #*******************
 #  AXIS X JOINT 0
 #*******************
+addf pid.x.do-pid-calcs       servo-thread
 
 setp   pid.x.Pgain     [JOINT_0]P
 setp   pid.x.Igain     [JOINT_0]I
