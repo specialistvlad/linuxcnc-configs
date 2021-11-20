@@ -7,10 +7,6 @@ setp    [HMOT](CARD0).pwmgen.pdm_frequency 6000000
 setp    [HMOT](CARD0).watchdog.timeout_ns 10000000
 loadrt pid names=pid.x,pid.y,pid.z
 
-# select8 component for disabling probe input while not probing to prevent contact bounce(retract move) 
-loadrt select8 count=1
-addf select8.0 servo-thread
-
 addf [HMOT](CARD0).read          servo-thread
 addf motion-command-handler   servo-thread
 addf motion-controller        servo-thread

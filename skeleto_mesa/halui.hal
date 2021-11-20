@@ -1,7 +1,3 @@
-#******************************
-# connect miscellaneous signals
-#******************************
-
 #  ---HALUI signals---
 
 net axis-select-x  halui.axis.x.select
@@ -34,8 +30,12 @@ net coolant-mist      <=  iocontrol.0.coolant-mist
 net coolant-flood     <=  iocontrol.0.coolant-flood
 
 #  ---probe signal---
-# enable probe signal only on probe move
+
 #net probe-in     =>  motion.probe-input
+
+# select8 component for disabling probe input while not probing to prevent contact bounce(retract move) 
+loadrt select8 count=1
+addf select8.0 servo-thread
 net probe-in select8.0.enable
 net motion-mode motion.motion-type select8.0.sel
 net probesel select8.0.out5 motion.probe-input
@@ -45,7 +45,6 @@ net probesel select8.0.out5 motion.probe-input
 net in-position               <=  motion.in-position
 net machine-is-enabled        <=  motion.motion-enabled
 
-#  ---digital in / out signals---
 
 #  ---estop signals---
 
