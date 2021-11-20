@@ -1,2 +1,2 @@
-loadusr postgui_tool
-loadusr postgui_misc
+source postgui_tool.hal
+source postgui_misc.hal

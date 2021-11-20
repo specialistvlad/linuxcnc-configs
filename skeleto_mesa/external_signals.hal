@@ -7,11 +7,11 @@ setp [HMOT](CARD0).gpio.018.invert_output true
 
 # --- SPINDLE-CW ---
 setp [HMOT](CARD0).gpio.022.is_output true
-net spindle-cw  =>     [HMOT](CARD0).gpio.022.out
+net spindle-cw  =>     [HMOT](CARD0).gpio.024.out
 
 # --- COOLANT-FLOOD ---
 setp [HMOT](CARD0).gpio.024.is_output true
-net coolant-flood  =>     [HMOT](CARD0).gpio.024.out
+#net coolant-flood  =>     [HMOT](CARD0).gpio.024.out
 
 # external input signals
 
