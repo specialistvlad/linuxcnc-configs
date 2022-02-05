@@ -4,8 +4,8 @@
 (IMAGE, ./macros/images/rel_home.png)
 
 O<rel_home> sub
-G90 X0 Y0
-G90 Z0
+G90 G0 X0 Y0
+G90 G0 Z0
 O<rel_home> endsub
 M2
 

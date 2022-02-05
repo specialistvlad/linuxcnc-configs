@@ -25,4 +25,4 @@ net spindle-index-enable      <=>  spindle.0.index-enable
 
 # ---Setup spindle at speed signals---
 
-sets spindle-at-speed false
+sets spindle-at-speed 1
