@@ -1,34 +1,63 @@
-``` [RaspberryPI] <ethernet> [7i92] <db25> [blue china bob] <IO> [Step drivers] & spindle & inputs```
+``` [RaspberryPI] <ethernet> [7i92] <db25> 2 X [blue china bob] <IO> [Step drivers] & spindle & inputs```
 
 
-DIR     TASK        BOBPin     MesaPort         MesaIO  Chan
-        PWM         P1          P1              17      1
-        X STEP      P2          P1              19      4
-        X DIR       P3          P1              21
-        Y STEP      P4          P1              23      5
-        Y DIR       P5          P1              25
-        Z STEP      P6          P1              26      6
-        Z DIR       P7          P1              27
-        A STEP      P8          P1              28
-        A DIR       P9          P1              29
-        ESTOP       P10         P1              30
-        TOUCH       P11         P1              31
-        X HOME      P12         P1              32
-        Y HOME      P13         P1              33
-        ENABLE      P14         P1              18
-        Z HOME      P15         P1              20
-        B STEP(CW)  P16         P1              22
-        B DIR(RELAY)P17         P1              24
+DB25 connector
+Real FUNC       TASK        BOBPin     MesaPort         MesaIO  Chan
+                PWM         P1          P1              17      1
+                X STEP      P2          P1              19      4
+                X DIR       P3          P1              21
+                Y STEP      P4          P1              23      5
+                Y DIR       P5          P1              25
+                Z STEP      P6          P1              26      6
+                Z DIR       P7          P1              27
+                A STEP      P8          P1              28
+                A DIR       P9          P1              29
+                ESTOP       P10         P1              30
+                TOUCH       P11         P1              31
+                X HOME      P12         P1              32
+                Y HOME      P13         P1              33
+                ENABLE      P14         P1              18
+                Z HOME      P15         P1              20
+Spindle CW      B STEP      P16         P1              22
+Spindle ON      B DIR(relay)P17         P1              24
 
-        GROUND      P18         P1
-        GROUND      P19         P1
-        GROUND      P20         P1
-        GROUND      P21         P1
-        GROUND      P22         P1
-        GROUND      P23         P1
-        GROUND      P24         P1
-        GROUND      P25         P1
-        
+                GROUND      P18         P1
+                GROUND      P19         P1
+                GROUND      P20         P1
+                GROUND      P21         P1
+                GROUND      P22         P1
+                GROUND      P23         P1
+                GROUND      P24         P1
+                GROUND      P25         P1
+
+HDR26 connector
+Real FUNC       TASK        BOBPin     MesaPort         MesaIO  Chan
+                PWM         P1          P2              
+                X STEP      P2          P2              
+                X DIR       P3          P2              
+                Y STEP      P4          P2              
+                Y DIR       P5          P2              
+                Z STEP      P6          P2              
+                Z DIR       P7          P2              
+                A STEP      P8          P2              
+                A DIR       P9          P2              
+3D-Touch        ESTOP       P10         P2              13
+                TOUCH       P11         P2              
+                X HOME      P12         P2              
+                Y HOME      P13         P2              
+                ENABLE      P14         P2              
+                Z HOME      P15         P2              
+                B STEP      P16         P2              
+                B DIR       P17         P2              
+
+                GROUND      P18         P2
+                GROUND      P19         P2
+                GROUND      P20         P2
+                GROUND      P21         P2
+                GROUND      P22         P2
+                GROUND      P23         P2
+                GROUND      P24         P2
+                GROUND      P25         P2
 
 hm2_eth: 10.10.10.10: INFO: Hardware address (MAC): 00:60:1b:13:05:f7
 hm2_eth: discovered 7I92

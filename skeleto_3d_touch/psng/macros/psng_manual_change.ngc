@@ -38,7 +38,7 @@ G49
 ; using the code being remapped here means 'use builtin behaviour'
 M6
 
-O200 if [#<_hal[probe.use_tool_measurement]> EQ 0]
+O200 if [#<_hal[psng.use_tool_measurement]> EQ 0]
     M71 ; Invalidate Modal Autorestore
     o<_psng_modal_restore> call
     O200 return [3] ; indicate no tool measurement
@@ -63,10 +63,10 @@ O1 endif
 G53 G0 Z[#<_ini[TOOLSENSOR]Z>]
 
 #<touch_result> = #5063
-#<setterheight> = #<_hal[probe.setterheight]>
-#<blockheight> = #<_hal[probe.blockheight]>
+#<setterheight> = #<_hal[psng.setterheight]>
+#<blockheight> = #<_hal[psng.blockheight]>
 
-G10 L1 P#<tool> Z[#<touch_result> - #<_hal[probe.setterheight]> + #<_hal[probe.blockheight]>]
+G10 L1 P#<tool> Z[#<touch_result> - #<_hal[psng.setterheight]> + #<_hal[psng.blockheight]>]
 G43
 
 ; BEGIN PSNG POSTAMBLE

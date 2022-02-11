@@ -24,11 +24,11 @@ O2 if [#<search_axis> GT 3]
     O2 return [-98]
 O2 endif
 
-O3 if [#<_hal[probe.ps_searchvel]> LE 0]
+O3 if [#<_hal[psng.ps_searchvel]> LE 0]
     O3 return [-97] ; indicate searchvel <= 0
 O3 endif
 
-O4 if [#<_hal[probe.ps_probevel]> LE 0]
+O4 if [#<_hal[psng.ps_probevel]> LE 0]
     O4 return [-96] ; indicate probevel <= 0
 O4 endif
 
@@ -36,7 +36,7 @@ O4 endif
 G91
 
 ; Set Search Feed Rate
-F[#<_hal[probe.ps_searchvel]>]
+F[#<_hal[psng.ps_searchvel]>]
 
 ; Force LinuxCNC to refresh hal pin states prior to reading HAL pin
 M66 E0 L0
@@ -66,20 +66,20 @@ O12 endif
 ; Move away
 O13 if [#<search_axis> EQ 1]
     ; X Axis
-    G1 X[-#<_hal[probe.ps_probe_latch]>*#<search_direction>]
+    G1 X[-#<_hal[psng.ps_probe_latch]>*#<search_direction>]
 O13 else if [#<search_axis> EQ 2]
     ; Y Axis
-    G1 Y[-#<_hal[probe.ps_probe_latch]>*#<search_direction>]
+    G1 Y[-#<_hal[psng.ps_probe_latch]>*#<search_direction>]
 O13 else if [#<search_axis> EQ 3]
     ; Z Axis
-    G1 Z[-#<_hal[probe.ps_probe_latch]>*#<search_direction>]
+    G1 Z[-#<_hal[psng.ps_probe_latch]>*#<search_direction>]
 O13 endif
 
 ; Allow a half second for the probe input to clear
 G4 P0.5
 
 ; Set Probe Feed Rate
-F[#<_hal[probe.ps_probevel]>]
+F[#<_hal[psng.ps_probevel]>]
 
 ; Force LinuxCNC to refresh hal pin states prior to reading HAL pin
 M66 E0 L0
@@ -92,13 +92,13 @@ O21 endif
 ; Perform the Probe
 O22 if [#<search_axis> EQ 1]
     ; X Axis
-    G38.3 X[#<_hal[probe.ps_probe_latch]>*2*#<search_direction>]
+    G38.3 X[#<_hal[psng.ps_probe_latch]>*2*#<search_direction>]
 O22 else if [#<search_axis> EQ 2]
     ; Y Axis
-    G38.3 Y[#<_hal[probe.ps_probe_latch]>*2*#<search_direction>]
+    G38.3 Y[#<_hal[psng.ps_probe_latch]>*2*#<search_direction>]
 O22 else if [#<search_axis> EQ 3]
     ; Z Axis
-    G38.3 Z[#<_hal[probe.ps_probe_latch]>*2*#<search_direction>]
+    G38.3 Z[#<_hal[psng.ps_probe_latch]>*2*#<search_direction>]
 O22 endif
 
 ; Check to see if we failed to make contact
@@ -107,18 +107,18 @@ O23 if [#5070 EQ 0]
 O23 endif
 
 ; Set Search Feed Rate
-F[#<_hal[probe.ps_searchvel]>]
+F[#<_hal[psng.ps_searchvel]>]
 
 ; Move away and allow a half second for the probe to clear
 O24 if [#<search_axis> EQ 1]
     ; X Axis
-    G1 X[-#<_hal[probe.ps_probe_latch]>*#<search_direction>]
+    G1 X[-#<_hal[psng.ps_probe_latch]>*#<search_direction>]
 O24 else if [#<search_axis> EQ 2]
     ; Y Axis
-    G1 Y[-#<_hal[probe.ps_probe_latch]>*#<search_direction>]
+    G1 Y[-#<_hal[psng.ps_probe_latch]>*#<search_direction>]
 O24 else if [#<search_axis> EQ 3]
     ; Z Axis
-    G1 Z[-#<_hal[probe.ps_probe_latch]>*#<search_direction>]
+    G1 Z[-#<_hal[psng.ps_probe_latch]>*#<search_direction>]
 O24 endif
 
 ; Allow a half second for the probe input to clear

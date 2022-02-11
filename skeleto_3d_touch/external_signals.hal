@@ -21,8 +21,9 @@ net home-z     <=  [HMOT](CARD0).gpio.020.in_not
 # --- ESTOP-EXT ---
 net estop-ext     <=  [HMOT](CARD0).gpio.030.in_not
 
-# --- PROBE-IN ---
+# --- PROBE-IN --- (tool height sensor, touch plate) both on same pin
 net probe-in     <=  [HMOT](CARD0).gpio.031.in_not
+net touch-3d-in     <=  [HMOT](CARD0).gpio.013
 
 # --- HOME-X ---
 net home-x     <=  [HMOT](CARD0).gpio.032.in_not

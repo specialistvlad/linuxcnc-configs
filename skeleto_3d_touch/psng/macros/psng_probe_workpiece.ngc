@@ -15,7 +15,7 @@ G10 L20 P0 Z[#<_hal[axis.z.pos-cmd]>]
 G90
 
 ; Probe the Workpiece
-o<_psng_probe_z> call [-#<_hal[probe.ps_probe_max]>]
+o<_psng_probe_z> call [-#<_hal[psng.ps_probe_max]>]
 O1 if [#<_value> EQ -1]
     M72 ; Restore modal state
     (ABORT, Probe already tripped when starting G38.3 move)
