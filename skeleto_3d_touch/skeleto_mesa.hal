@@ -16,3 +16,9 @@ addf pid.z.do-pid-calcs       servo-thread
 addf [HMOT](CARD0).write         servo-thread
 setp [HMOT](CARD0).dpll.01.timer-us -50
 setp [HMOT](CARD0).stepgen.timer-number 1
+
+loadrt or2 names=probe-or
+addf probe-or servo-thread
+
+loadrt select8 names=probe-select
+addf probe-select servo-thread

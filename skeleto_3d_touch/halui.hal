@@ -29,16 +29,12 @@ net MDI-mode              halui.mode.is-mdi
 net coolant-mist      <=  iocontrol.0.coolant-mist
 net coolant-flood     <=  iocontrol.0.coolant-flood
 
-#  ---probe signal---
-
-#net probe-in     =>  motion.probe-input
-
+#  ---probe---
 # select8 component for disabling probe input while not probing to prevent contact bounce(retract move) 
-loadrt select8 count=1
-addf select8.0 servo-thread
-net probe-in select8.0.enable
-net motion-mode motion.motion-type select8.0.sel
-net probesel select8.0.out5 motion.probe-input
+
+net probe-muxed-out probe-select.enable <= probe-or.out
+net motion-mode motion.motion-type probe-select.sel
+net probe-motion-input probe-select.out5 motion.probe-input
 
 #  ---motion control signals---
 
