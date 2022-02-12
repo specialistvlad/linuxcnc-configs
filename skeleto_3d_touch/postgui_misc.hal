@@ -1,4 +1,4 @@
 #setp gmoccapy.spindle_at_speed_led 1
-net probe-or-out gmoccapy.spindle_at_speed_led
+net probe-muxed-out gmoccapy.spindle_at_speed_led
 net spindle-vel-cmd-rps-abs gmoccapy.spindle_feedback_bar <= spindle.0.speed-out-rps-abs
 #net spindle-vel-cmd-rpm gmoccapy.spindle_feedback_bar <= spindle.0.speed-out
