@@ -1,5 +1,4 @@
 #  ---HALUI signals---
-
 net axis-select-x  halui.axis.x.select
 net jog-x-pos      halui.axis.x.plus
 net jog-x-neg      halui.axis.x.minus
@@ -25,23 +24,23 @@ net jog-speed             halui.axis.jog-speed
 net MDI-mode              halui.mode.is-mdi
 
 #  ---coolant signals---
-
 net coolant-mist      <=  iocontrol.0.coolant-mist
 net coolant-flood     <=  iocontrol.0.coolant-flood
 
 #  ---probe---
 # select8 component for disabling probe input while not probing to prevent contact bounce(retract move) 
-
-net probe-muxed-out probe-select.enable <= probe-or.out
 net motion-mode motion.motion-type probe-select.sel
-net probe-motion-input probe-select.out5 motion.probe-input
+net probe-or probe-select.out5 => probe-or.in0
+
+# muxed output of touch probe\tool sensor + 3d touch apply to debounce input
+net debounce-probe-in debounce.0.0.in <= probe-or.out
+# straight to linuxcnc core for handling
+net probe motion.probe-input <= debounce.0.0.out
 
 #  ---motion control signals---
-
 net in-position               <=  motion.in-position
 net machine-is-enabled        <=  motion.motion-enabled
 
 #  ---estop signals---
-
 net estop-out     <=  iocontrol.0.user-enable-out
 net estop-ext     =>  iocontrol.0.emc-enable-in

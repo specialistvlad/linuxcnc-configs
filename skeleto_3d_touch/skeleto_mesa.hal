@@ -22,3 +22,7 @@ addf probe-or servo-thread
 
 loadrt select8 names=probe-select
 addf probe-select servo-thread
+
+loadrt debounce cfg=1
+setp debounce.0.delay 30
+addf debounce.0 servo-thread

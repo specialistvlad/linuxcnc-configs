@@ -21,13 +21,9 @@ net home-z     <=  [HMOT](CARD0).gpio.020.in_not
 # --- ESTOP-EXT ---
 net estop-ext     <=  [HMOT](CARD0).gpio.030.in_not
 
-# --- PROBE-IN --- (tool height sensor, touch plate) both on same pin
-#net probe-in     <=  [HMOT](CARD0).gpio.031.in
-#net probe-3d-in  <=  [HMOT](CARD0).gpio.013.in
-
-net probe-touch-plate-plus-tool-touch-in probe-or.in0 <= [HMOT](CARD0).gpio.031.in_not
-net probe-3d-touch-in probe-or.in1 <= [HMOT](CARD0).gpio.013.in_not
-net probe-muxed-out probe-or.out
+# --- PROBE-IN --- (tool height sensor, touch plate) both on same pin, 3d-touch different pin
+net probe-in probe-select.enable <= [HMOT](CARD0).gpio.031.in_not
+net probe3d-or probe-or.in1 <= [HMOT](CARD0).gpio.013.in_not
 
 # --- HOME-X ---
 net home-x     <=  [HMOT](CARD0).gpio.032.in_not
